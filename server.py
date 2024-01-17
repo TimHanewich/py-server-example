@@ -12,6 +12,6 @@ while True:
     print("Connection from " + str(addr) + "!")
     data:bytes = conn.recv(1024)
     print(str(len(data)) + " bytes received!")
-    conn.sendall(data) # echo back what we received right bac
+    conn.send("HTTP/1.0 200 OK\r\n\r\n".encode("utf-8"))
     conn.close()
 
