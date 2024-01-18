@@ -12,8 +12,16 @@ while True:
     print("Now waiting for connection...")
     conn, addr = s.accept()
     print("Connection from " + str(addr) + "!")
-    data:bytes = conn.recv(1024)
-    print(str(len(data)) + " bytes received!")
+
+
+    # get all data
+    all_data:bytes = b""
+    while True:
+        data:bytes = conn.recv(1024)
+        if not data:
+            break
+        all_data = all_data + data
+    print(str(len(all_data)) + " bytes received!")
 
     # print the content
     print("Content received: " + str(data))
