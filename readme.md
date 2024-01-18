@@ -12,4 +12,4 @@ When the server is running, the client will need to make HTTP requests to the se
 
 In the above example, HTTP requests are being made through Postman, directing the requests at the server's local IP address, followed by a colon, and the port number the server is listening on (configured in the server code).
 
-If you instead want to simply *only* want to have to specify the server's IP address and *not* a port number, I *believe* you simply need to run the server on the HTTP-dedicated port, **port 80**. But, running it on a "privileged" port, ports between 0 and 1023, will require `sudo` or `root` privileges to run and begin listening on.
+If you instead want to simply *only* want to have to specify the server's IP address and *not* a port number, you simply need to run the server on the HTTP-dedicated port, **port 80**. But, running it on a "privileged" port, ports between 0 and 1023, will require `sudo` or `root` privileges to run and begin listening on.
