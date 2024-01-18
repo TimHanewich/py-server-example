@@ -15,7 +15,7 @@ while True:
 
 
     # get all data
-    conn.settimeout(1.0)
+    conn.settimeout(0.5)
     all_data:bytearray = bytearray()
     while True:
         try:
