@@ -3,7 +3,7 @@ import time
 import json
 
 HOST = "0.0.0.0" # 0.0.0.0 defaults to using the device's IP address.
-PORT = 80
+PORT = 80 # 80 is default HTTP port, so you could call ONLY the device's IP address to access... BUT, it requires sudo/root permissions
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
