@@ -15,12 +15,15 @@ while True:
 
 
     # get all data
-    all_data:bytes = b""
+    conn.settimeout(1.0)
+    all_data:bytearray = bytearray()
     while True:
-        data:bytes = conn.recv(1024)
-        if not data:
+        try:
+            data:bytes = conn.recv(1024)
+            for b in data:
+                all_data.append(b)
+        except: # there are no more bytes incoming in the stream and the timeout triggered
             break
-        all_data = all_data + data
     print(str(len(all_data)) + " bytes received!")
 
     # print the content
