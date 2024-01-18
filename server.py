@@ -1,4 +1,6 @@
 import socket
+import time
+import json
 
 HOST = "0.0.0.0" # 0.0.0.0 defaults to using the device's IP address.
 PORT = 65432
@@ -16,7 +18,13 @@ while True:
     # print the content
     print("Content received: " + str(data))
 
+    # assemble JSON payload (body of response)
+    payload = {"time": time.time()}
+
+    # assemble response body
+    response:str = "HTTP/1.0 200 OK\r\n\r\n" + json.dumps(payload)
+
     # send 200 OK
-    conn.send("HTTP/1.0 200 OK\r\n\r\n".encode("utf-8"))
+    conn.send(response.encode("utf-8"))
     conn.close()
 
