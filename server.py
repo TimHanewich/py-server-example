@@ -22,7 +22,7 @@ while True:
     payload = {"time": time.time()}
 
     # assemble response body
-    response:str = "HTTP/1.0 200 OK\r\n\r\n" + json.dumps(payload)
+    response:str = "HTTP/1.0 200 OK\r\nContent-Type: application/json\r\n\r\n" + json.dumps(payload)
 
     # send 200 OK
     conn.send(response.encode("utf-8"))
